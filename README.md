@@ -1,5 +1,24 @@
 # Lanka Tube
 
+A Sinhala YouTube discovery app for searching and playing public videos, with optional Firebase sign-in and community sharing.
+
+## Configure
+
+Add Firebase web app settings to firebase-config.js. Never add a Firebase service-account file, private key, or OAuth client secret.
+
+For shared YouTube search, add a restricted YOUTUBE_API_KEY repository Actions secret under Settings > Secrets and variables > Actions. The deployment workflow injects it into the public site; visitors can still see a browser API key, so restrict it to YouTube Data API v3 and the site's HTTP referrer. Without the secret, visitors can enter their own key in the account menu.
+
+Enable Google sign-in in Firebase Authentication, add the deployed host to Firebase authorized domains, create Firestore, and publish firestore.rules to enable the community feed.
+
+## Local run
+
+Serve this folder over HTTP, for example: python -m http.server 4173
+
+## Publish
+
+GitHub Pages is configured to use GitHub Actions. The workflow at .github/workflows/pages.yml deploys on pushes to main. The public site is https://lakshancreations26-crypto.github.io/lanka-tube/.
+# Lanka Tube
+
 Lanka Tube is a responsive YouTube discovery app. It searches public videos with the YouTube Data API, plays them in YouTube's embedded player, and can share video links live with other signed-in users through Firebase.
 
 ## Configure the app
